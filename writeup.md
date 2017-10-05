@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [image1]: ./output_images/car_and_notcar.png
 [image2]: ./output_images/HOG_car_image.png
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
+[image3]: ./output_imgaes/normalized_features.png
+[image4]: ./output_images/find_cars.png
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
@@ -62,7 +62,7 @@ Here is an example using the `RGB` color space and HOG parameters of `orientatio
 Finally , after some experiments, I decided tu use the same parameters as described in the example above.
 
 
-####3. Trainning the classifier SVM
+### 2. Trainning the classifier SVM and extract_features() Function
 
 I trainned a linear SVM using the GRidSearch to reach the best tunning. The code is located in the 4th cell of the jupyter notebook. 
 
@@ -85,16 +85,25 @@ To extratct the features for the dataset was used the function extract_features(
     clf = grid_search.GridSearchCV(svr, parameters)
     clf.fit(X_train, y_train)
     
-
-
-
-###Sliding Window Search
-
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
-
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
-
+        
 ![alt text][image3]
+
+
+
+### 3.Sliding Window Search
+
+The sliding window search is performed by the function find_cars() using HOG Sub-sampling. The function is located in the 6th cell of the jupyter notebook.
+After experiments I decided to use the scales 1.0, 1.25, 1.50, 1.75 and 2.0 , this is necessary to detect the cars, but unfortunately decrease in a significative way the performance.
+
+Every cicle the search steps 2 cells. (line 29)
+
+Here is an example with scale = 1.0 . It's possible to see that the function detected some falses positives.
+
+![alt text][image4]
+
+To prevent and decrease false postives was used the heat map. 
+
+
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
