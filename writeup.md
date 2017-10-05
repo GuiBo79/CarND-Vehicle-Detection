@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [image1]: ./output_images/car_and_notcar.png
 [image2]: ./output_images/HOG_car_image.png
-[image3]: ./output_imgaes/normalized_features.png
+[image3]: ./output_images/normalized_features.png
 [image4]: ./output_images/find_cars.png
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
@@ -101,7 +101,7 @@ Here is an example with scale = 1.0 . It's possible to see that the function det
 
 ![alt text][image4]
 
-To prevent and decrease false postives was used the heat map. 8
+To prevent and decrease false postives was used the heat map. 89
 
 
 
