@@ -30,7 +30,7 @@ The goals / steps of this project are the following:
 2. find_cars.ipynb
 3. lanesdetect.py
 4. Lines.py
-5. vehicle_detection.mp4
+5. vehicle_detection_result.mp4
 
 ## Project Environment 
 
@@ -129,7 +129,7 @@ Ultimately I searched on 5 scales using RGB 3-channel HOG features plus spatiall
 ### 6. Video Implementation
 
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./vehicle_detection_result.mp4)
 
 
 As done for images ,I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  To prevent blinking and over updating  , I created an global variable called prev_labels to record the previous label. I update the boxes every 8 cycles. 
