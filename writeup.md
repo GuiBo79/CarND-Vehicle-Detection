@@ -66,6 +66,11 @@ Finally , after some experiments, I decided tu use the same parameters as descri
 
 I trainned a linear SVM using the GRidSearch to reach the best tunning. The code is located in the 4th cell of the jupyter notebook. 
 
+    Using: 9 orientations 8 pixels per cell and 2 cells per block
+    Feature vector length: 8460
+    149.23 Seconds to train SVC...
+    Test Accuracy of SVC =  0.9935
+
 To extratct the features for the dataset was used the function extract_features() with the following parameters:
 
     color_space = 'RGB' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb
