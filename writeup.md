@@ -19,9 +19,9 @@ The goals / steps of this project are the following:
 [image2]: ./output_images/HOG_car_image.png
 [image3]: ./output_images/normalized_features.png
 [image4]: ./output_images/find_cars.png
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
+[image5]: ./output_images/heat_image.png
+[image6]: ./output_images/pipeline_result_1.png
+[image7]: ./output_images/pipeline_result_2.png
 [video1]: ./project_video.mp4
 
 ## Project Files
@@ -105,16 +105,21 @@ To prevent and decrease false positives was used the heat map.
 
 ### 4. Multiple Detection (Add Heat & Threshold Funtion)
 
-As mentioned , the heat function is used to filter false positives in the pipeline. The function add_heat() is located at the 7th cell of the jupyter notebook. After process the image is aplied an threshold 
+As mentioned , the heat function is used to filter false positives in the pipeline. The function add_heat() is located at the 7th cell of the jupyter notebook. After process the image is aplied an threshold and result can be view above.
+
+
+![alt text][image5]
+
+
+### 5. Pipeline result in images 
+
+Ultimately I searched on 5 scales using RGB 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+![alt text][image6]
+![alt text][image7]
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
-
-![alt text][image4]
----
 
 ### Video Implementation
 
