@@ -32,13 +32,21 @@ The goals / steps of this project are the following:
 4. Lines.py
 5. vehicle_detection.mp4
 
+## Project Environment 
+
+Intel® Core™ i5-5200U CPU @ 2.20GHz × 4 - 6Gb
+
+GeForce 930M/PCIe/SSE2
+
+Ubuntu 17.04 - 64 bits
+
+Anaconda - Jupyter Notebook
 
 
 
+### 1. Histogram of Oriented Gradients (HOG)
 
-###1. Histogram of Oriented Gradients (HOG)
-
-####1. The HOG features are extracted by the function get_hog_features() in the first cell of the Python Notebook find_cars.ipynb
+The HOG features are extracted by the function get_hog_features() in the first cell of the Python Notebook find_cars.ipynb
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -51,13 +59,34 @@ Here is an example using the `RGB` color space and HOG parameters of `orientatio
 
 ![alt text][image2]
 
-####2. Explain how you settled on your final choice of HOG parameters.
+Finally , after some experiments, I decided tu use the same parameters as described in the example above.
 
-I tried various combinations of parameters and...
 
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+####3. Trainning the classifier SVM
 
-I trained a linear SVM using...
+I trainned a linear SVM using the GRidSearch to reach the best tunning. The code is located in the 4th cell of the jupyter notebook. 
+
+To extratct the features for the dataset was used the function extract_features() with the following parameters:
+
+    color_space = 'RGB' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb
+    orient = 9  # HOG orientations
+    pix_per_cell = 8 # HOG pixels per cell
+    cell_per_block = 2 # HOG cells per block
+    hog_channel = "ALL" # Can be 0, 1, 2, or "ALL"
+    spatial_size = (32, 32) # Spatial binning dimensions
+    hist_bins = 32    # Number of histogram bins
+    spatial_feat = True # Spatial features on or off
+    hist_feat = True # Histogram features on or off
+    hog_feat = True # HOG features on or off
+    y_start_stop = [400, 720] # Min and max in y to search in slide_window()
+
+    parameters = {'kernel':('linear', 'rbf'), 'C':[1, 10]}
+    svr = svm.SVC()
+    clf = grid_search.GridSearchCV(svr, parameters)
+    clf.fit(X_train, y_train)
+    
+
+
 
 ###Sliding Window Search
 
