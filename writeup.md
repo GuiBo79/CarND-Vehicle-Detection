@@ -101,7 +101,11 @@ Here is an example with scale = 1.0 . It's possible to see that the function det
 
 ![alt text][image4]
 
-To prevent and decrease false postives was used the heat map. 89
+To prevent and decrease false positives was used the heat map. 
+
+### 4. Multiple Detection (Add Heat & Threshold Funtion)
+
+As mentioned , the heat function is used to filter false positives in the pipeline. The function add_heat() is located at the 7th cell of the jupyter notebook. After process the image is aplied an threshold 
 
 
 
