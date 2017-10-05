@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 [image5]: ./output_images/heat_image.png
 [image6]: ./output_images/pipeline_result_1.png
 [image7]: ./output_images/pipeline_result_2.png
-[video1]: ./project_video.mp4
+[video1]: ./vehicle_detection.mp4
 
 ## Project Files
 
@@ -59,12 +59,12 @@ Here is an example using the `RGB` color space and HOG parameters of `orientatio
 
 ![alt text][image2]
 
-Finally , after some experiments, I decided tu use the same parameters as described in the example above.
+Finally , after some experiments, I decided to use the same parameters as described in the example above.
 
 
-### 2. Trainning the classifier SVM and extract_features() Function
+### 2. Training the classifier SVM and extract_features() Function
 
-I trainned a linear SVM using the GRidSearch to reach the best tunning. The code is located in the 4th cell of the jupyter notebook. 
+I trained a linear SVM using the GRidSearch to reach the best tunning. The code is located in the 4th cell of the jupyter notebook. 
 
     Using: 9 orientations 8 pixels per cell and 2 cells per block
     Feature vector length: 8460
@@ -98,19 +98,19 @@ To extratct the features for the dataset was used the function extract_features(
 ### 3.Sliding Window Search
 
 The sliding window search is performed by the function find_cars() using HOG Sub-sampling. The function is located in the 6th cell of the jupyter notebook.
-After experiments I decided to use the scales 1.0, 1.25, 1.50, 1.75 and 2.0 , this is necessary to detect the cars, but unfortunately decrease in a significative way the performance.
+After experiments I decided to use the scales 1.0, 1.25, 1.50, 1.75 and 2.0 , this is necessary to detect the cars, but unfortunately decrease in a significant way the performance.
 
 Every cicle the search steps 2 cells. (line 29)
 
-Here is an example with scale = 1.0 . It's possible to see that the function detected some falses positives.
+Here is an example with scale = 1.0 . It's possible to see that the function detected some false positives.
 
 ![alt text][image4]
 
 To prevent and decrease false positives was used the heat map. 
 
-### 4. Multiple Detection (Add Heat & Threshold Funtion)
+### 4. Multiple Detection (Add Heat & Threshold Function)
 
-As mentioned , the heat function is used to filter false positives in the pipeline. The function add_heat() is located at the 7th cell of the jupyter notebook. After process the image is aplied an threshold and result can be view above.
+As mentioned , the heat function is used to filter false positives in the pipeline. The function add_heat() is located at the 7th cell of the jupyter notebook. After process the image is applied an threshold and result can be view above.
 
 
 ![alt text][image5]
@@ -132,17 +132,17 @@ Ultimately I searched on 5 scales using RGB 3-channel HOG features plus spatiall
 Here's a [link to my video result](./project_video.mp4)
 
 
-As done for images ,I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  To prevent blinking and over updating  , I created an global variable called prev_labels to record the previous label. I update the boxes every 8 cicles. 
+As done for images ,I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  To prevent blinking and over updating  , I created an global variable called prev_labels to record the previous label. I update the boxes every 8 cycles. 
 
 
 
----
+
 
 ### 7. Discussion
 
-For me , this was the most challenger project and in my current professional situation was also the most valuable. Support Vector Machines fits perfectly for the project I am working on. One of the biggest challenges I had was to process the code in my laptop, in my company we are already investing in a workstation for me. I tried tu use the Numba library to accelerate the process, but unfortunatelly did not work as I was expecting. 
+For me , this was the most challenger project and in my current professional situation was also the most valuable. Support Vector Machines fits perfectly for the project I am working on. One of the biggest challenges I had was to process the code in my laptop, in my company we are already investing in a workstation for me. I tried to use the Numba library to accelerate the process, but unfortunately did not work as I was expecting. 
 
-I believe with a larger dataset and detecting in more scales the detection could be more precise, and I very conscient that have a lot to improve in this code. 
+I believe with a larger dataset and detecting in more scales the detection could be more precise, and I very conscious that have a lot to improve in this code. 
 
 To this final project I also merge the lanes detection , but just a short video due my hardware limitations, anyway, I am very happy about everything I have learn in this course and I am very excited to start the next Term.
 
