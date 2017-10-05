@@ -101,7 +101,7 @@ Here is an example with scale = 1.0 . It's possible to see that the function det
 
 ![alt text][image4]
 
-To prevent and decrease false postives was used the heat map. 
+To prevent and decrease false postives was used the heat map. 8
 
 
 
