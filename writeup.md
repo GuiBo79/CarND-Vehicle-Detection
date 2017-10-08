@@ -134,6 +134,17 @@ Here's a [link to my video result](./vehicle_detection_result.mp4)
 
 As done for images ,I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  To prevent blinking and over updating  , I created an global variable called prev_labels to record the previous label. I update the boxes every 8 cycles. 
 
+## REVIEW
+
+As suggested , to improve the performance and to minimize false positives I just took 2 action, the code continued strictly the same:
+
+1. Hard negative and positive mining: I croped from video frames ,where the code was not performing fine, new data. therefore I augmented the data to specific situations.
+
+2. Changing HOG parameters: I changed the number of orientatation from 9 to 24.
+
+These two actions increased a lot performance to the pipeline, and it shows how important is the review to ours projects, sometimes very simple changes makes all the diference. 
+
+
 
 
 
